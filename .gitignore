@@ -1,0 +1,52 @@
+# Environment files
+.env
+
+# Python virtual environments
+env/
+venv/
+airflow_env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# ChromaDB
+vectordb/
+web_vectordb/
+training_data_bot/vectordb/
+
+# Output files
+output/
+
+# Data files
+data/
+
+# Airflow
+airflow.db
+airflow-webserver.pid
+airflow-scheduler.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# HuggingFace cache
+.cache/
+

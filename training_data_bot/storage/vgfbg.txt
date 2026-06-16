@@ -1,0 +1,26 @@
+ self.connection = None
+
+    async def connect(self):
+
+        self.connection = await asyncpg.connect(
+            host="xxxx.rds.amazonaws.com",
+            user="admin",
+            password="password", database="training_data")
+
+    async def close(self):
+
+        await self.connection.close()
+
+
+
+
+ async def save_record(self, record):
+
+        await self.connection.execute(
+            """
+            INSERT INTO dataset
+            VALUES ($1,$2)
+            """,
+            record["question"],
+            record["answer"]
+        )
