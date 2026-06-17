@@ -1,4 +1,5 @@
 import asyncio
+import traceback
 
 import pandas as pd
 from pathlib import Path
@@ -71,8 +72,9 @@ class TrainingDataBot:
                             
                       except Exception as e:
                              
-                             raise ConfigurationError(f"Failed to initialize bot Component {e}") 
-                      
+                             traceback.print_exc()
+
+                             raise 
            
                         
            async def __aenter__ ( self ):
@@ -324,7 +326,7 @@ class TrainingDataBot:
 
                         try:
 
-                             await self.db_manager.close()
+                         ### await self.database_manager.close() 
 
                              if hasattr(self.decodo_client, "close"):
                                       await self.decodo_client.close()
@@ -346,7 +348,7 @@ class TrainingDataBot:
                              await self.cleanup ()
 
 
-
+"""
 
 import asyncio
 
@@ -374,7 +376,7 @@ async def main():
     print("\nStats:")
     print(result["stats"])
 
-
+"""
    
 
 
@@ -424,14 +426,14 @@ async def main():
 
     result = await assistant.research("lung cancer",PubMedTemplate.LITERATURE_REVIEW)
 
-    print(result)"""
+    print(result)
 
 
 if __name__ == "__main__":
 
     asyncio.run(main())
 
-    """ docs = await bot.load_documents("https://pubmed.ncbi.nlm.nih.gov/?term=carcinoma")
+       docs = await bot.load_documents("https://pubmed.ncbi.nlm.nih.gov/?term=carcinoma")
 
              print(f"Loaded {len(docs)} docs")
            
